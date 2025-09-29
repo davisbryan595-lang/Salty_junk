@@ -24,7 +24,7 @@ const plans = [
 
 export function PricingSection() {
   return (
-    <section id="pricing" className="py-16 scroll-mt-24">
+    <section id="pricing" className="py-16 scroll-mt-24 section-blue-bg">
       <div className="mx-auto max-w-6xl px-4">
         <div className="mb-8">
           <h2 className="text-3xl font-semibold text-balance">Pricing Plans</h2>
