@@ -49,23 +49,15 @@ export function ServicesSection() {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            // Wrapper ensures the bg image sits behind the card
-            <div
+            <Card
               key={s.title}
-              className="group relative rounded-xl overflow-hidden min-h-64 shadow-lg"
+              className="group relative overflow-hidden rounded-xl shadow-lg min-h-64 hover:-translate-y-0.5 transition-transform bg-cover bg-center bg-transparent"
+              style={{ backgroundImage: `url(${s.bgUrl})` }}
             >
-              {/* Background image layer */}
-              <div
-                className="absolute inset-0 bg-cover bg-center bg-no-repeat transform transition-transform duration-700 group-hover:scale-105"
-                style={{ backgroundImage: `url("${s.bgUrl}")` }}
-                aria-hidden
-              />
+              {/* Light Overlay so text is readable */}
+              <div className="absolute inset-0 bg-black/30"></div>
 
-              {/* Softer overlay so the image is visible but text remains readable */}
-              <div className="absolute inset-0 bg-black/25 transition-colors duration-300 group-hover:bg-black/20" />
-
-              {/* Place Card on top, keep it transparent so background shows through */}
-              <Card className="relative z-10 bg-transparent border-none shadow-none">
+              <div className="relative z-10">
                 <CardHeader>
                   <CardTitle className="text-xl text-white drop-shadow-lg">
                     {s.title}
@@ -79,8 +71,8 @@ export function ServicesSection() {
                     <a href="#contact">Book Now</a>
                   </Button>
                 </CardContent>
-              </Card>
-            </div>
+              </div>
+            </Card>
           ))}
         </div>
       </div>
