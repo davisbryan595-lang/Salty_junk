@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button"
 
 export function Hero() {
   return (
-    <section aria-label="Hero" className="relative min-h-[76dvh] md:min-h-[82dvh] flex items-center overflow-hidden">
+    <section aria-label="Hero" className="relative min-h-[76dvh] md:min-h-[82dvh] flex items-center overflow-hidden section-blue-bg">
       <div className="absolute inset-0 hero-animated-bg" aria-hidden="true" />
       {/* Background: subtle futuristic polish via layered gradients */}
       <div className="absolute inset-0 bg-[radial-gradient(60%_60%_at_10%_10%,color-mix(in_srgb,var(--color-primary)_20%,transparent),transparent),radial-gradient(50%_50%_at_90%_20%,color-mix(in_srgb,var(--color-primary)_18%,transparent),transparent)]" />
