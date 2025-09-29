@@ -44,7 +44,7 @@ export function ServicesSection() {
                     <img
                       alt={`${s.title} illustrative placeholder`}
                       src="/professional-junk-removal-service-photo.jpg"
-                      className="h-full w-full object-cover opacity-70"
+                      className="h-full w-full object-cover image-hd opacity-70"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
                   </div>

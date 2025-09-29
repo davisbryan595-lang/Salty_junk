@@ -16,7 +16,7 @@ export function SiteHeader() {
     { href: "#contact", label: "Contact" },
   ]
   return (
-    <header className="sticky top-0 z-50 border-b bg-background/40 supports-[backdrop-filter]:bg-background/25 backdrop-blur-xl shadow-md">
+    <header className="sticky top-0 z-50 border-b header-molten glass-panel shadow-md">
       <div className="mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <Image
@@ -31,7 +31,7 @@ export function SiteHeader() {
         </Link>
         <nav className="hidden md:flex items-center gap-6">
           {navItems.map((item) => (
-            <a key={item.href} href={item.href} className="text-sm hover:text-primary transition-colors">
+            <a key={item.href} href={item.href} className="text-sm nav-link-glow hover:text-primary transition-colors">
               {item.label}
             </a>
           ))}
@@ -77,7 +77,7 @@ export function SiteHeader() {
         <div className="md:hidden border-t">
           <div className="mx-auto max-w-6xl px-4 py-3 flex flex-col gap-3">
             {navItems.map((item) => (
-              <a key={item.href} href={item.href} className="py-1 text-sm hover:text-primary" onClick={() => setOpen(false)}>
+              <a key={item.href} href={item.href} className="py-1 text-sm nav-link-glow hover:text-primary" onClick={() => setOpen(false)}>
                 {item.label}
               </a>
             ))}

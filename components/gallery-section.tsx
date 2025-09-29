@@ -39,16 +39,36 @@ function BeforeAfter({
   const [pos, setPos] = useState(50)
   return (
     <div className="space-y-3">
-      <div className="relative aspect-[16/9] overflow-hidden rounded-lg border bg-card/70 backdrop-blur">
+      <div
+          className="relative aspect-[16/9] overflow-hidden rounded-lg border bg-card/70 backdrop-blur cursor-col-resize glass-panel glowable"
+          onMouseMove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            setPos(percent);
+          }}
+          onMouseEnter={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            setPos(percent);
+          }}
+          onTouchMove={(e) => {
+            const rect = e.currentTarget.getBoundingClientRect();
+            const x = e.touches[0].clientX - rect.left;
+            const percent = Math.max(0, Math.min(100, (x / rect.width) * 100));
+            setPos(percent);
+          }}
+        >
         <img
           src={beforeSrc || "/placeholder.svg"}
           alt={`Before - ${label}`}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover image-hd"
         />
         <img
           src={afterSrc || "/placeholder.svg"}
           alt={`After - ${label}`}
-          className="absolute inset-0 h-full w-full object-cover"
+          className="absolute inset-0 h-full w-full object-cover image-hd"
           style={{ clipPath: `inset(0 0 0 ${pos}%)` }}
         />
         <div className="absolute inset-y-0" style={{ left: `${pos}%` }}>
