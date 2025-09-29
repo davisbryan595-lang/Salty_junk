@@ -5,22 +5,27 @@ const services = [
   {
     title: "Junk Removal",
     desc: "From single items to full loads. Quick, clean, and careful.",
+    bgClass: "bg-card-junk",
   },
   {
     title: "Home Clean Outs",
     desc: "Estate, moving, or spring cleaning — we handle it all.",
+    bgClass: "bg-card-home",
   },
   {
     title: "Yard Debris Removal",
     desc: "Branches, bags, and storm debris cleared fast.",
+    bgClass: "bg-card-yard",
   },
   {
     title: "Small Demo & Clean Up",
     desc: "Tear-outs and haul-away with site swept clean.",
+    bgClass: "bg-card-demo",
   },
   {
     title: "Garage Clean Outs",
     desc: "Reclaim your space with efficient sorting and removal.",
+    bgClass: "bg-card-garage",
   },
 ]
 
@@ -34,23 +39,13 @@ export function ServicesSection() {
         </div>
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((s) => (
-            <Card key={s.title} className="group border bg-card/70 backdrop-blur hover:shadow-lg transition-shadow">
+            <Card key={s.title} className={`group no-glass card-bg-base ${s.bgClass} bg-blend-overlay text-white min-h-64 hover:-translate-y-0.5 transition-transform rounded-xl`}>
               <CardHeader>
                 <CardTitle className="text-xl">{s.title}</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <div className="relative rounded-lg border bg-popover/40 p-3">
-                  <div className="h-28 rounded-md bg-accent/10 ring-1 ring-inset ring-border relative overflow-hidden">
-                    <img
-                      alt={`${s.title} illustrative placeholder`}
-                      src="/professional-junk-removal-service-photo.jpg"
-                      className="h-full w-full object-cover image-hd opacity-70"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-t from-background/40 to-transparent" />
-                  </div>
-                </div>
-                <p className="text-sm text-muted-foreground">{s.desc}</p>
-                <Button asChild className="w-full shadow">
+                <p className="text-sm text-white/90 max-w-prose drop-shadow-[0_6px_20px_rgba(0,0,0,.45)]">{s.desc}</p>
+                <Button asChild className="w-full shadow-lg">
                   <a href="#contact">Book Now</a>
                 </Button>
               </CardContent>
