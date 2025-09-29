@@ -7,18 +7,21 @@ const plans = [
     price: "$",
     desc: "Single items or small loads.",
     features: ["Curbside pickup", "Light sorting", "Quick appointment"],
+    bgClass: "bg-price-basic",
   },
   {
     name: "Standard",
     price: "$$",
     desc: "Most popular. Typical room/garage loads.",
     features: ["Load-based pricing", "On-site sweep", "Same/next-day"],
+    bgClass: "bg-price-standard",
   },
   {
     name: "Premium",
     price: "$$$",
     desc: "Large clean outs or multi-area projects.",
     features: ["Team on site", "Haul-away & disposal", "Premium scheduling"],
+    bgClass: "bg-price-premium",
   },
 ]
 
@@ -30,17 +33,17 @@ export function PricingSection() {
           <h2 className="text-3xl font-semibold text-balance">Pricing Plans</h2>
           <p className="text-muted-foreground">Transparent tiers with premium service polish.</p>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-8 md:grid-cols-3">
           {plans.map((p) => (
-            <Card key={p.name} className="border bg-card/70 backdrop-blur hover:shadow-xl transition-shadow">
+            <Card key={p.name} className={`no-glass price-bg-base ${p.bgClass} bg-blend-overlay text-white min-h-72 md:min-h-80 lg:min-h-96 hover:-translate-y-0.5 transition-transform rounded-xl`}>
               <CardHeader>
-                <CardTitle className="flex items-baseline justify-between">
+                <CardTitle className="flex items-baseline justify-between drop-shadow-[0_6px_20px_rgba(0,0,0,.45)]">
                   <span>{p.name}</span>
                   <span className="text-primary">{p.price}</span>
                 </CardTitle>
               </CardHeader>
               <CardContent className="space-y-4">
-                <p className="text-sm text-muted-foreground">{p.desc}</p>
+                <p className="text-sm text-white/90 drop-shadow-[0_6px_20px_rgba(0,0,0,.45)]">{p.desc}</p>
                 <ul className="text-sm list-disc pl-5 space-y-1">
                   {p.features.map((f) => (
                     <li key={f}>{f}</li>
