@@ -17,13 +17,13 @@ const testimonials = [
 
 export function TestimonialsSection() {
   return (
-    <section id="testimonials" className="py-16 scroll-mt-24">
+    <section id="testimonials" className="py-16 scroll-mt-24 section-blue-bg">
       <div className="mx-auto max-w-6xl px-4">
-        <div className="mb-8">
+        <div className="mb-8 text-center">
           <h2 className="text-3xl font-semibold text-balance">What People Say</h2>
           <p className="text-muted-foreground">Placeholder reviews — real ones coming soon.</p>
         </div>
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid gap-6 md:grid-cols-3 text-center">
           {testimonials.map((t, i) => (
             <Card key={i} className="border bg-card/70 backdrop-blur">
               <CardContent className="p-6 space-y-4">

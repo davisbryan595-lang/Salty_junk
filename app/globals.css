@@ -32,6 +32,11 @@
   --input: var(--border);
   --ring: oklch(0.6 0.12 240);
 
+  /* Derived brand blues from logo/primary */
+  --brand-blue-1: color-mix(in oklch, var(--primary) 78%, black);
+  --brand-blue-2: color-mix(in oklch, var(--primary) 40%, white);
+  --brand-gradient: linear-gradient(135deg, var(--brand-blue-1), var(--brand-blue-2));
+
   /* Keep chart vars but they map into blue/grey set */
   --chart-1: oklch(0.52 0.14 240);
   --chart-2: oklch(0.76 0 0);
@@ -77,6 +82,11 @@
   --border: oklch(0.28 0 0);
   --input: var(--border);
   --ring: oklch(0.72 0.12 240);
+
+  /* Dark-tuned brand blues */
+  --brand-blue-1: color-mix(in oklch, var(--primary) 85%, black);
+  --brand-blue-2: color-mix(in oklch, var(--primary) 55%, white);
+  --brand-gradient: linear-gradient(135deg, var(--brand-blue-1), var(--brand-blue-2));
 
   --sidebar: var(--secondary);
   --sidebar-foreground: var(--foreground);
@@ -148,7 +158,7 @@
 
 @layer utilities {
   .hero-animated-bg {
-    background-image: url('/professional-junk-removal-service-photo.jpg');
+    background-image: url('/organized-garage-after.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 0% center;
@@ -167,4 +177,117 @@
   }
   .contact-chip[data-icon="phone"]::before { content: "📞"; }
   .contact-chip[data-icon="email"]::before { content: "✉️"; }
+}
+
+/* Molten glass theme utilities */
+@layer utilities {
+  .glass-panel {
+    background: color-mix(in oklch, var(--color-card) 65%, transparent);
+    border-color: color-mix(in oklch, var(--color-border) 85%, transparent);
+    backdrop-filter: blur(16px) saturate(1.1);
+    -webkit-backdrop-filter: blur(16px) saturate(1.1);
+  }
+  .glowable {
+    transition: box-shadow .28s cubic-bezier(.22,.61,.36,1), transform .28s cubic-bezier(.22,.61,.36,1), opacity .28s ease;
+    will-change: transform, box-shadow;
+    transform: translateZ(0);
+  }
+  .glowable:hover {
+    box-shadow: 0 6px 22px -8px color-mix(in oklch, currentColor 45%, transparent), 0 0 0 1px color-mix(in oklch, currentColor 20%, transparent);
+  }
+  .image-hd {
+    image-rendering: auto;
+    filter: saturate(1.06) contrast(1.04) brightness(1.02);
+  }
+  @keyframes sheen-sweep {
+    from { transform: translate3d(-120%,0,0) skewX(-15deg); }
+    to { transform: translate3d(120%,0,0) skewX(-15deg); }
+  }
+  .sheen-hover { position: relative; overflow: hidden; }
+  .sheen-hover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    width: 40%;
+    transform: translate3d(-120%,0,0) skewX(-15deg);
+    background: linear-gradient(90deg, transparent, color-mix(in oklch, var(--color-foreground) 14%, transparent) 45%, transparent);
+    opacity: .5;
+    pointer-events: none;
+    will-change: transform;
+  }
+  .sheen-hover:hover::after { animation: sheen-sweep 1.1s cubic-bezier(.22,.61,.36,1); }
+
+  .header-molten {
+    background:
+      linear-gradient(
+        to bottom,
+        color-mix(in oklch, var(--brand-blue-2) 18%, transparent),
+        color-mix(in oklch, var(--brand-blue-1) 8%, transparent)
+      ),
+      linear-gradient(
+        to bottom,
+        color-mix(in oklch, var(--color-background) 40%, transparent),
+        color-mix(in oklch, var(--color-background) 15%, transparent)
+      );
+    border-bottom: 1px solid color-mix(in oklch, var(--color-border) 75%, transparent);
+    backdrop-filter: blur(14px) saturate(1.1);
+    -webkit-backdrop-filter: blur(14px) saturate(1.1);
+  }
+  .nav-link-glow { position: relative; transition: color .2s ease; }
+  .nav-link-glow::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 100%;
+    height: 2px;
+    background: radial-gradient(8px 8px at 0 50%, currentColor 30%, transparent 70%),
+                linear-gradient(90deg, color-mix(in oklch, currentColor 60%, transparent), transparent);
+    opacity: .0;
+    transform: scaleX(.4);
+    transform-origin: left;
+    transition: transform .25s ease, opacity .25s ease;
+  }
+  .nav-link-glow:hover::after { opacity: .8; transform: scaleX(1); }
+}
+
+@layer utilities {
+  .section-blue-bg {
+    background-image:
+      radial-gradient(60% 80% at 10% 0%, color-mix(in oklch, var(--brand-blue-2) 12%, transparent), transparent),
+      linear-gradient(180deg, color-mix(in oklch, var(--brand-blue-1) 10%, transparent), transparent);
+    background-repeat: no-repeat;
+  }
+  .text-glow-strong { text-shadow: 0 1px 0 color-mix(in oklch, var(--color-background) 35%, transparent), 0 6px 18px color-mix(in oklch, var(--color-primary) 55%, transparent); }
+  .text-glow-soft { text-shadow: 0 1px 0 color-mix(in oklch, var(--color-background) 35%, transparent), 0 4px 14px color-mix(in oklch, var(--color-primary) 45%, transparent); }
+  .no-glass { background: transparent !important; background-image: none !important; }
+  .card-bg-base { background-size: cover; background-position: center; background-repeat: no-repeat; }
+  .price-bg-base { background-size: cover; background-position: center; background-repeat: no-repeat; }
+  .neon-card { box-shadow: 0 0 0 1px color-mix(in oklch, var(--brand-blue-2) 45%, transparent); }
+  .neon-card:hover { box-shadow: 0 0 0 1px color-mix(in oklch, var(--brand-blue-2) 65%, transparent), 0 0 26px color-mix(in oklch, var(--brand-blue-1) 55%, transparent); }
+
+  /* Glassy tint overlay for image cards */
+  .card-glass-tint { position: relative; overflow: hidden; }
+  .card-glass-tint::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, color-mix(in oklch, var(--brand-blue-2) 18%, transparent), color-mix(in oklch, var(--brand-blue-1) 8%, transparent)),
+      linear-gradient(180deg, color-mix(in oklch, black 18%, transparent), color-mix(in oklch, black 36%, transparent) 70%, color-mix(in oklch, black 46%, transparent));
+    mix-blend-mode: overlay;
+    pointer-events: none;
+    z-index: 0;
+  }
+  /* Contrast helpers */
+  .card-contrast[data-contrast='light'] { color: oklch(0.985 0 0); }
+  .card-contrast[data-contrast='dark'] { color: var(--foreground); }
+  .bg-card-junk { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-1) 12%, transparent), transparent), url('/professional-junk-removal-service-photo.jpg'); }
+  .bg-card-home { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-1) 12%, transparent), transparent), url('/organized-garage-after.jpg'); }
+  .bg-card-yard { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-1) 12%, transparent), transparent), url('/clean-yard-after.jpg'); }
+  .bg-card-demo { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-1) 12%, transparent), transparent), url('/cluttered-yard-before.jpg'); }
+  .bg-card-garage { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-1) 12%, transparent), transparent), url('/messy-garage-before.jpg'); }
+  .bg-price-basic { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-2) 12%, transparent), transparent), url('/professional-junk-removal-service-photo.jpg'); }
+  .bg-price-standard { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-2) 12%, transparent), transparent), url('/organized-garage-after.jpg'); }
+  .bg-price-premium { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-2) 12%, transparent), transparent), url('/clean-yard-after.jpg'); }
 }

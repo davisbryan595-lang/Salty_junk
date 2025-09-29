@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/next"
 import "./globals.css"
 import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
+import SafeFetch from "@/components/safe-fetch"
 import { Suspense } from "react"
 
 export const metadata: Metadata = {
@@ -23,6 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body className={`font-sans antialiased ${GeistSans.variable} ${GeistMono.variable}`}>
+        <SafeFetch />
         <Suspense fallback={<div>Loading...</div>}>
           <SiteHeader />
           <main>{children}</main>

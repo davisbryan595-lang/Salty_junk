@@ -19,7 +19,7 @@ export function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-16 scroll-mt-24">
+    <section id="contact" className="py-16 scroll-mt-24 section-blue-bg">
       <div className="mx-auto max-w-6xl px-4 grid gap-8 md:grid-cols-2">
         <div>
           <h2 className="text-3xl font-semibold text-balance">Contact Us</h2>
