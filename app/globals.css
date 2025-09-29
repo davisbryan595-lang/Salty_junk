@@ -221,15 +221,15 @@
     background:
       linear-gradient(
         to bottom,
-        color-mix(in oklch, var(--brand-blue-2) 28%, transparent),
-        color-mix(in oklch, var(--brand-blue-1) 12%, transparent)
+        color-mix(in oklch, var(--brand-blue-2) 18%, transparent),
+        color-mix(in oklch, var(--brand-blue-1) 8%, transparent)
       ),
       linear-gradient(
         to bottom,
-        color-mix(in oklch, var(--color-background) 65%, transparent),
-        color-mix(in oklch, var(--color-background) 30%, transparent)
+        color-mix(in oklch, var(--color-background) 40%, transparent),
+        color-mix(in oklch, var(--color-background) 15%, transparent)
       );
-    border-bottom: 1px solid color-mix(in oklch, var(--color-border) 90%, transparent);
+    border-bottom: 1px solid color-mix(in oklch, var(--color-border) 75%, transparent);
     backdrop-filter: blur(14px) saturate(1.1);
     -webkit-backdrop-filter: blur(14px) saturate(1.1);
   }
@@ -260,9 +260,11 @@
   }
   .text-glow-strong { text-shadow: 0 1px 0 color-mix(in oklch, var(--color-background) 35%, transparent), 0 6px 18px color-mix(in oklch, var(--color-primary) 55%, transparent); }
   .text-glow-soft { text-shadow: 0 1px 0 color-mix(in oklch, var(--color-background) 35%, transparent), 0 4px 14px color-mix(in oklch, var(--color-primary) 45%, transparent); }
-  .no-glass { background: transparent !important; }
+  .no-glass { background-color: transparent !important; }
   .card-bg-base { background-size: cover; background-position: center; background-repeat: no-repeat; }
   .price-bg-base { background-size: cover; background-position: center; background-repeat: no-repeat; }
+  .neon-card { box-shadow: 0 0 0 1px color-mix(in oklch, var(--brand-blue-2) 45%, transparent); }
+  .neon-card:hover { box-shadow: 0 0 0 1px color-mix(in oklch, var(--brand-blue-2) 65%, transparent), 0 0 26px color-mix(in oklch, var(--brand-blue-1) 55%, transparent); }
   .bg-card-junk { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-1) 12%, transparent), transparent), url('/professional-junk-removal-service-photo.jpg'); }
   .bg-card-home { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-1) 12%, transparent), transparent), url('/organized-garage-after.jpg'); }
   .bg-card-yard { background-image: linear-gradient(to top, color-mix(in oklch, var(--brand-blue-1) 12%, transparent), transparent), url('/clean-yard-after.jpg'); }
