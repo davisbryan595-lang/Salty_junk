@@ -15,7 +15,7 @@ export function Hero() {
             Fast, friendly, and professional junk removal. From home and garage clean outs to yard debris and small
             demos — we make clutter disappear.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button asChild className="shadow-lg">
               <a href="tel:+13863310402">Call Now</a>
             </Button>
