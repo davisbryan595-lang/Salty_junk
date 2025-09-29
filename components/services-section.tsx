@@ -8,31 +8,31 @@ const services = [
     title: "Junk Removal",
     desc: "From single items to full loads. Quick, clean, and careful.",
     bgUrl:
-      "https://images.unsplash.com/photo-1604335399106-79b9d1a8a0f7?q=80&w=1600&auto=format&fit=crop", // pile of junk
+      "https://images.unsplash.com/photo-1604335399106-79b9d1a8a0f7?q=80&w=1600&auto=format&fit=crop",
   },
   {
     title: "Home Clean Outs",
     desc: "Estate, moving, or spring cleaning — we handle it all.",
     bgUrl:
-      "https://images.unsplash.com/photo-1600585154175-3c0a5c09a1d2?q=80&w=1600&auto=format&fit=crop", // empty clean room
+      "https://images.unsplash.com/photo-1600585154175-3c0a5c09a1d2?q=80&w=1600&auto=format&fit=crop",
   },
   {
     title: "Yard Debris Removal",
     desc: "Branches, bags, and storm debris cleared fast.",
     bgUrl:
-      "https://images.unsplash.com/photo-1621905252431-d2b77e78c5d6?q=80&w=1600&auto=format&fit=crop", // yard debris / leaves
+      "https://images.unsplash.com/photo-1621905252431-d2b77e78c5d6?q=80&w=1600&auto=format&fit=crop",
   },
   {
     title: "Small Demo & Clean Up",
     desc: "Tear-outs and haul-away with site swept clean.",
     bgUrl:
-      "https://images.unsplash.com/photo-1597005355973-f61c8ef8ab87?q=80&w=1600&auto=format&fit=crop", // construction demo
+      "https://images.unsplash.com/photo-1597005355973-f61c8ef8ab87?q=80&w=1600&auto=format&fit=crop",
   },
   {
     title: "Garage Clean Outs",
     desc: "Reclaim your space with efficient sorting and removal.",
     bgUrl:
-      "https://images.unsplash.com/photo-1617093800160-4b2b6d4a33a5?q=80&w=1600&auto=format&fit=crop", // cluttered garage
+      "https://images.unsplash.com/photo-1617093800160-4b2b6d4a33a5?q=80&w=1600&auto=format&fit=crop",
   },
 ]
 
@@ -51,11 +51,11 @@ export function ServicesSection() {
           {services.map((s) => (
             <Card
               key={s.title}
-              className="group relative overflow-hidden rounded-xl shadow-lg min-h-64 hover:-translate-y-0.5 transition-transform bg-cover bg-center"
+              className="group relative overflow-hidden rounded-xl shadow-lg min-h-64 hover:-translate-y-0.5 transition-transform bg-cover bg-center bg-transparent"
               style={{ backgroundImage: `url(${s.bgUrl})` }}
             >
-              {/* Softer Overlay (not too much blur) */}
-              <div className="absolute inset-0 bg-black/25"></div>
+              {/* Light Overlay so text is readable */}
+              <div className="absolute inset-0 bg-black/30"></div>
 
               <div className="relative z-10">
                 <CardHeader>
